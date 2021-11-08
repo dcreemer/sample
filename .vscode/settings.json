@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": ".venv/bin/python",
+    "files.exclude": {
+        ".pytest_cache": true,
+        "**/__pycache__": true,
+        "**/.coverage*": true,
+    }
+}
