@@ -16,7 +16,7 @@ run:
 clean:
 	rm -rf htmlcov
 	rm -rf .coverage .pytest_cache -rf .mypy_cache
-	-find pyz2p tests -name "__pycache__" -exec rm -rf {} \;
+	-find . \( -not -path ./.venv/\* \) -name "__pycache__" -exec rm -rf {} \;
 
 pristine: clean
 	rm -rf .venv
