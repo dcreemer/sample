@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["D Creemer <@dcreemer>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5"
+black = "^21.9b0"
+coverage = {extras = ["toml"], version = "^5.5"}
+flake8 = "^3.9"
+flake8-bandit = "^2.1"
+flake8-isort = "^4.0.0"
+isort = "^5.9"
+mypy = "^0.910"
+pyproject-flake8 = "^0.0.1-alpha.2"
+pytest = "^6"
+pytest-cov = "^2.12"
+safety = "^1.10"
+
+[tool.poetry.scripts]
+main = "app:main"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=python_template --cov-report html --cov-report term"
+
+[tool.flake8]
+max-line-length = "105"
+# (S101 don't warn about using asserts in test code)
+# (E501 don't warn about ling length)
+per-file-ignores = "tests/*:E501,S101 */tests/*:E501,S101"
+
+[tool.autopep8]
+max_line_length = 105
+
+[tool.black]
+line-length = 105
+target-version = ["py39"]
+
+[tool.coverage.run]
+branch = true
+omit = [ "/tests/*" ]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
