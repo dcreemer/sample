@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-template"
+name = "sample"
 version = "0.1.0"
-description = ""
+description = "Sample Python application"
 authors = ["D Creemer <@dcreemer>"]
 
 [tool.poetry.dependencies]
@@ -22,11 +22,11 @@ pytest-cov = "^2.12"
 safety = "^1.10"
 
 [tool.poetry.scripts]
-main = "app:main"
+sample = "app:main"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov=python_template --cov-report html --cov-report term"
+addopts = "--cov=sample --cov-report html --cov-report term"
 
 [tool.flake8]
 max-line-length = "105"
@@ -43,7 +43,8 @@ target-version = ["py39"]
 
 [tool.coverage.run]
 branch = true
-omit = [ "/tests/*" ]
+parallel = true
+source = ["src"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

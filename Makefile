@@ -2,7 +2,7 @@ test:
 	poetry run pytest -v .
 
 code-check:
-	-ls */__init__.py | xargs dirname | xargs poetry run mypy
+	-ls src/*/__init__.py tests/__init__.py | xargs dirname | xargs poetry run mypy
 	-find . \( -not -path ./.venv/\* \) -name "*.py" -exec poetry run pflake8 {} \;
 	-poetry run safety check --bare
 
@@ -11,7 +11,7 @@ format-check:
 	-poetry run black --diff -t py39 .
 
 run:
-	poetry run main
+	PYTHONPATH=src poetry run sample
 
 clean:
 	rm -rf htmlcov

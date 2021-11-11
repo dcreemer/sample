@@ -1,4 +1,4 @@
-from python_template import __version__
+from sample import __version__
 
 
 def test_version() -> None:
