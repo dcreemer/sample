@@ -2,8 +2,8 @@ test:
 	poetry run pytest -v .
 
 code-check:
-	-poetry run mypy tests
-	-poetry run pflake8 app.py tests/*.py
+	-ls */__init__.py | xargs dirname | xargs poetry run mypy
+	-find . \( -not -path ./.venv/\* \) -name "*.py" -exec poetry run pflake8 {} \;
 	-poetry run safety check --bare
 
 format-check:
