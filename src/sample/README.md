@@ -1,0 +1,1 @@
+This package contains application logic (i.e. the "business logic").

@@ -1,0 +1,1 @@
+This directory contains application-level functional tests.
