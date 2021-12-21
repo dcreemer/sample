@@ -13,7 +13,7 @@ personal use, and want them to have a good foundation.
 I generally develop on macOS, though I also use Linux, FreeBSD, and sometimes Windows. This repo is
 meant to support Unix-like OSes.
 
-## Pyenv and Pipx
+### Pyenv and Pipx
 
 I *never* install anything into the system-provided Python runtime -- I believe it is there for use
 by other system services and tools. To bootstrap my own Python runtime, I use `pyenv`` to install a
@@ -71,7 +71,7 @@ directly into the `pyenv`-installed global environment -- and skip the `pipx` ph
 $ pip install -U poetry
 ```
 
-## Poetry
+### Poetry
 
 The dependencies of the actual Python app, as well as the settings for are of the associated
 development, testing, and deployment tools are set in the `pyproject.toml` file at the app-root
@@ -79,3 +79,28 @@ directory, and are generally managed by [poetry](https://python-poetry.org/). Am
 `poetry` will create and automatically use a local virtual-environment just for this application.
 There are three [make targets](https://github.com/dcreemer/sample/blob/main/Makefile#L24-L25)
 included to bootstrap, clean, and remove this virtual env.
+
+## Using the project
+
+Clone this project into your own, new repository, and edit the references to `sample` to your
+own project name. In particular, be sure to edit `pyproject.toml`. You can then bootstrap your
+development and runtime environment, and verify that the tests pass with:
+
+```sh
+$ make boot
+$ make test
+```
+
+(If you're logged into Github, you can alternatively click the "Use this template" button to create
+a new repository based on this one.)
+
+All of the various development tools (like `mypy`, `flake8`, etc.) are installed *inside* the local
+virtual environment. Unless you've taken other steps, you will need to use `poetry` to run the tools.
+For example:
+
+```sh
+$ poetry run pytest -v tests/test_sample.py
+```
+
+This uses poetry to run the `pytest` command in the context of the project- (and directory-) local
+virtual environment.
