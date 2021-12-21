@@ -21,7 +21,7 @@ modern version of Python 3 (Python 3.9+), and then set that as my personal globa
 system Python runtime uses as a _shared_ directory for all `pip install`ed packages. If two
 Python-based applications depend on different versions of a common library, one will see an
 untested and potentially incompatible version (this is sometimes called "[dependency
-hell]()https://en.wikipedia.org/wiki/Dependency_hell)"). Python can easily avoid this problem
+hell](https://en.wikipedia.org/wiki/Dependency_hell)"). Python can easily avoid this problem
 through [virtual environments](https://docs.python.org/3/tutorial/venv.html) - but we have to
 choose a strategy for managing them. In addition, we have to consider that the system Python
 runtime (as install by "apt" for example) is likely to be different from the runtime we want
