@@ -16,7 +16,7 @@ meant to support Unix-like OSes.
 ### Pyenv and Pipx
 
 I *never* install anything into the system-provided Python runtime -- I believe it is there for use
-by other system services and tools. To bootstrap my own Python runtime, I use `pyenv`` to install a
+by other system services and tools. To bootstrap my own Python runtime, I use `pyenv` to install a
 modern version of Python 3 (Python 3.9+), and then set that as my personal global runtime. The
 system Python runtime uses as a _shared_ directory for all `pip install`ed packages. If two
 Python-based applications depend on different versions of a common library, one will see an
