@@ -25,7 +25,7 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell)"). Python can easily avoid 
 through [virtual environments](https://docs.python.org/3/tutorial/venv.html) - but we have to
 choose a strategy for managing them. In addition, we have to consider that the system Python
 runtime (as install by "apt" for example) is likely to be different from the runtime we want
-(python-3.8.1 vs. python 3.10.0). `Pyenv` manages different user-installed runtimes so that we can
+(python-3.8.1 vs. python 3.10.2). `Pyenv` manages different user-installed runtimes so that we can
 control this too.
 
 
@@ -33,9 +33,9 @@ To install `pyenv`, I will typically do something like this:
 
 ```sh
 $ sudo apt install build-essential libsqlite3-dev   # on Linux
-$ brew install pyenv
-$ pyenv install 3.10.0
-$ pyenv global 3.10.0
+$ brew install pyenv                                # on macOS
+$ pyenv install 3.10.2
+$ pyenv global 3.10.2
 ```
 
 Be sure to read the [instructions](https://github.com/pyenv/pyenv#installation) on integrating
@@ -51,7 +51,8 @@ tools:
 
 ```sh
 $ pip install -U pip pipx   # ensure both pip and pipx are installed and up to date
-$ pipx install poetry tqdm
+$ pipx install poetry
+$ pipx install tqdm
 ```
 
 Here we've install [poetry](https://python-poetry.org/) and [tqdm](https://tqdm.github.io/) (a

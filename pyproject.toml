@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "sample"
-version = "0.1.0"
+version = "0.2.0"
 description = "Sample Python application"
 authors = ["D Creemer <@dcreemer>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.5"
@@ -47,7 +47,7 @@ parallel = true
 source = ["src"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
 strict = true
 warn_return_any = true
