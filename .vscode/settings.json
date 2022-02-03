@@ -1,5 +1,8 @@
 {
-    "python.pythonPath": ".venv/bin/python",
+    "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+    "python.linting.flake8Path": "${workspaceFolder}/.venv/bin/pflake8",
+    "python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
+    "mypy.dmypyExecutable": "${workspaceFolder}/.venv/bin/dmypy",
     "files.exclude": {
         ".pytest_cache": true,
         "**/__pycache__": true,
