@@ -8,17 +8,18 @@ authors = ["D Creemer <@dcreemer>"]
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-black = "^21.9b0"
-coverage = {extras = ["toml"], version = "^5.5"}
+black = "^22.1"
+coverage = {extras = ["toml"], version = "^6.3"}
 flake8 = "^3.9"
-flake8-bandit = "^2.1"
-flake8-isort = "^4.0.0"
-isort = "^5.9"
+flake8-bandit = "^2"
+flake8-isort = "^4"
+isort = "^5"
 mypy = "^0.910"
 pyproject-flake8 = "^0.0.1-alpha.2"
 pytest = "^6"
-pytest-cov = "^2.12"
-safety = "^1.10"
+pytest-cov = "^3"
+safety = "^1"
+flake8-black = "^0.2"
 
 [tool.poetry.scripts]
 sample = "main:main"
@@ -29,13 +30,19 @@ addopts = "--cov=sample --cov-report html --cov-report term"
 
 [tool.flake8]
 max-line-length = "105"
+# ignore whitespace before ":" -- compatible with black
+extend-ignore = "E203"
 # (S101 don't warn about using asserts in test code)
-# (E501 don't warn about ling length)
+# (E501 don't warn about line length)
 per-file-ignores = "tests/*:E501,S101 */*/tests/*:E501,S101"
 
 [tool.black]
 line-length = 105
 target-version = ["py310"]
+preview = true
+
+[tool.isort]
+profile = "black"
 
 [tool.coverage.run]
 branch = true
