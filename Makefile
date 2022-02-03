@@ -7,8 +7,7 @@ code-check:
 	-poetry run safety check --bare
 
 format-check:
-	-poetry run autopep8 --diff -r .
-	-poetry run black --diff -t py39 .
+	-poetry run black --diff .
 
 run:
 	PYTHONPATH=src poetry run sample

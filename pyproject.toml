@@ -8,7 +8,6 @@ authors = ["D Creemer <@dcreemer>"]
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "^1.5"
 black = "^21.9b0"
 coverage = {extras = ["toml"], version = "^5.5"}
 flake8 = "^3.9"
@@ -32,14 +31,11 @@ addopts = "--cov=sample --cov-report html --cov-report term"
 max-line-length = "105"
 # (S101 don't warn about using asserts in test code)
 # (E501 don't warn about ling length)
-per-file-ignores = "tests/*:E501,S101 */tests/*:E501,S101"
-
-[tool.autopep8]
-max_line_length = 105
+per-file-ignores = "tests/*:E501,S101 */*/tests/*:E501,S101"
 
 [tool.black]
 line-length = 105
-target-version = ["py39"]
+target-version = ["py310"]
 
 [tool.coverage.run]
 branch = true
@@ -52,8 +48,6 @@ mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
 strict = true
 warn_return_any = true
 warn_unreachable = true
-warn_redundant_casts = true
-warn_unused_ignores = true
 warn_no_return = true
 
 [build-system]
