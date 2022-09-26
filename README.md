@@ -34,8 +34,8 @@ To install `pyenv`, I will typically do something like this:
 ```sh
 $ sudo apt install build-essential libsqlite3-dev   # on Linux
 $ brew install pyenv                                # on macOS
-$ pyenv install 3.10.2
-$ pyenv global 3.10.2
+$ pyenv install 3.10.6
+$ pyenv global 3.10.6
 ```
 
 Be sure to read the [instructions](https://github.com/pyenv/pyenv#installation) on integrating
