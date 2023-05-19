@@ -3,18 +3,18 @@ test:
 
 code-check:
 	-ls src/*/__init__.py tests/__init__.py | xargs dirname | xargs poetry run mypy
-	-find . \( -not -path ./.venv/\* \) -name "*.py" -exec poetry run pflake8 {} \;
+	-poetry run ruff check .
 	-poetry run safety check --bare
 
 format-check:
 	-poetry run black --diff .
 
 run:
-	PYTHONPATH=src poetry run sample
+	poetry run python src/main.py
 
 clean:
 	rm -rf htmlcov
-	rm -rf .coverage .pytest_cache -rf .mypy_cache
+	rm -rf .coverage .pytest_cache .mypy_cache .ruff_cache
 	-find . \( -not -path ./.venv/\* \) -name "__pycache__" -exec rm -rf {} \;
 
 pristine: clean

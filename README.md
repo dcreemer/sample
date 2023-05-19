@@ -1,8 +1,8 @@
 # Python Sample Project
 
-A Python 3.x sample project, indended to bootstrap new projects. Uses poetry, pytest mypy, flake8,
-black, bandit, isort, autopep8, and safety tools, and integrates with VS Code as well as a
-Makefile-basec cli development flow.
+A Python 3.x sample project, indended to bootstrap new projects. Uses poetry, pytest, mypy,
+[ruff](https://github.com/charliermarsh/ruff), black, and safety tools, and integrates with VS Code as
+well as a Makefile-basec cli development flow.
 
 This repository represents my current understanding and opinion on how to best structure a Python 3
 application repository. I generally write a lot of "little Python applications" for work and for
@@ -95,7 +95,7 @@ $ make test
 (If you're logged into Github, you can alternatively click the "Use this template" button to create
 a new repository based on this one.)
 
-All of the various development tools (like `mypy`, `flake8`, etc.) are installed *inside* the local
+All of the various development tools (like `mypy`, `ruff`, etc.) are installed *inside* the local
 virtual environment. Unless you've taken other steps, you will need to use `poetry` to run the tools.
 For example:
 

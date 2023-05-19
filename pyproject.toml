@@ -1,48 +1,55 @@
 [tool.poetry]
 name = "sample"
-version = "0.2.0"
+version = "0.3.0"
 description = "Sample Python application"
-authors = ["D Creemer <@dcreemer>"]
+authors = ["D Creemer <dcreemer@sfba.social>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 
 [tool.poetry.dev-dependencies]
-black = "^22.1"
-coverage = {extras = ["toml"], version = "^6.3"}
-flake8 = "^5"
-flake8-bandit = "^4"
-flake8-isort = "^4"
-isort = "^5"
-mypy = "^0.971"
-pyproject-flake8 = "^5"
-pytest = "^7"
-pytest-cov = "^3"
-safety = "^2"
-flake8-black = "^0.3"
-
-[tool.poetry.scripts]
-sample = "main:main"
+black = "^23.3"
+coverage = {extras = ["toml"], version = "^7.2"}
+mypy = "^1.3"
+pytest = "^7.3"
+pytest-cov = "^4"
+ruff = "^0.0.269"
+safety = "^2.3"
 
 [tool.pytest.ini_options]
-minversion = "6.0"
+minversion = "7.0"
 addopts = "--cov=sample --cov-report html --cov-report term"
-
-[tool.flake8]
-max-line-length = "105"
-# ignore whitespace before ":" -- compatible with black
-extend-ignore = "E203"
-# (S101 don't warn about using asserts in test code)
-# (E501 don't warn about line length)
-per-file-ignores = "tests/*:E501,S101 */*/tests/*:E501,S101"
 
 [tool.black]
 line-length = 105
-target-version = ["py310"]
+target-version = ["py311"]
 preview = true
 
-[tool.isort]
-profile = "black"
+[tool.ruff]
+line-length = 105
+src = ["src", "tests"]
+select = [
+  "B",   # bugbear
+  "C90", # mccabe
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "I",   # isort
+  "N",   # pep8 naming
+  "PT",  # pytest style
+  "RUF", # ruff
+  "S",   # bandit
+  "SIM", # simplify
+  "UP",  # pyupgrade
+  "W",   # Warnings
+]
+typing-modules = ["typings"]
+
+[tool.ruff.per-file-ignores]
+"**/tests/*.py" = ["S101"]
+
+
+[tool.ruff.mccabe]
+max-complexity = 8
 
 [tool.coverage.run]
 branch = true
@@ -50,7 +57,7 @@ parallel = true
 source = ["src"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
 strict = true
 warn_return_any = true
