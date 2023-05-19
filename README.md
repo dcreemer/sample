@@ -18,7 +18,7 @@ meant to support Unix-like OSes.
 I *never* install anything into the system-provided Python runtime -- I believe it is there for use
 by other system services and tools. To bootstrap my own Python runtime, I use `pyenv` to install a
 modern version of Python 3 (Python 3.9+), and then set that as my personal global runtime. The
-system Python runtime uses as a _shared_ directory for all `pip install`ed packages. If two
+system Python runtime uses a _shared_ directory for all `pip install`ed packages. If two
 Python-based applications depend on different versions of a common library, one will see an
 untested and potentially incompatible version (this is sometimes called "[dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell)"). Python can easily avoid this problem
@@ -44,7 +44,7 @@ Be sure to read the [instructions](https://github.com/pyenv/pyenv#installation) 
 Now you have `pyenv` and your own Python runtime installed. The next step is to install tools into
 your user-global runtime using `pip install`. Here again we face the same problem: we need a way to
 nicely install "global" Python-based tools into isolated virtual environments so that they don't
-step on each other. This is the roll of [pipx](https://github.com/pypa/pipx). `Pipx` automated the
+step on each other. This is the roll of [pipx](https://github.com/pypa/pipx). `Pipx` automates the
 creation and management of isolated Python virtual-environments for each globally installed tool.
 It's a bit like static-linking a program. Let's install `pipx` and then use it to install a couple
 tools:
@@ -74,8 +74,8 @@ $ pip install -U poetry
 
 ### Poetry
 
-The dependencies of the actual Python app, as well as the settings for are of the associated
-development, testing, and deployment tools are set in the `pyproject.toml` file at the app-root
+The dependencies of the actual Python app, as well as the settings for the associated
+development, testing, and deployment tools are specified in the `pyproject.toml` file at the app-root
 directory, and are generally managed by [poetry](https://python-poetry.org/). Among other things,
 `poetry` will create and automatically use a local virtual-environment just for this application.
 There are three [make targets](https://github.com/dcreemer/sample/blob/main/Makefile#L24-L25)
@@ -83,9 +83,9 @@ included to bootstrap, clean, and remove this virtual env.
 
 ## Using the project
 
-Clone this project into your own, new repository, and edit the references to `sample` to your
+Clone this project into your own, new repository, and change the references to `sample` to your
 own project name. In particular, be sure to edit `pyproject.toml`. You can then bootstrap your
-development and runtime environment, and verify that the tests pass with:
+development and runtime environment, and verify that the tests pass:
 
 ```sh
 $ make boot
