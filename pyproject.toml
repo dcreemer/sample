@@ -8,13 +8,13 @@ authors = ["D Creemer <dcreemer@sfba.social>"]
 python = "^3.11"
 
 [tool.poetry.dev-dependencies]
-black = "^23.7"
-coverage = {extras = ["toml"], version = "^7.3"}
-mypy = "^1.5"
-pytest = "^7.4"
-pytest-cov = "^4.1"
+black = "^23.12.1"
+coverage = {extras = ["toml"], version = "^7.4.4"}
+mypy = "^1.9.0"
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
 ruff = "^0.0.269"
-safety = "^2.3"
+safety = "^2.3.5"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
