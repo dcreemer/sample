@@ -1,6 +1,6 @@
 # Python Sample Project
 
-A Python 3.x sample project, indended to bootstrap new projects. Uses poetry, pytest, mypy,
+A Python 3.x sample project, intended to bootstrap new projects. Uses poetry, pytest, mypy,
 [ruff](https://github.com/charliermarsh/ruff), black, and safety tools, and integrates with VS Code as
 well as a Makefile-basec cli development flow.
 
@@ -65,7 +65,7 @@ $ pipx upgrade tqdm
 $ pipx upgrade-all
 ```
 
-If I'm on a deployment only environment, or for a very seldomly-used system, I may install Poetry
+If I'm on a deployment only environment, or for a very seldom-used system, I may install Poetry
 directly into the `pyenv`-installed global environment -- and skip the `pipx` phase.
 
 ```sh
