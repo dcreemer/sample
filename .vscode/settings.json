@@ -2,6 +2,7 @@
     "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
     "files.exclude": {
         ".pytest_cache": true,
+        "htmlcov": true,
         "**/__pycache__": true,
         "**/.coverage*": true,
     }
