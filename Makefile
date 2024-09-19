@@ -1,24 +1,28 @@
 test:
-	poetry run pytest -v .
+	uv run pytest -v tests
 
 code-check:
-	-ls src/*/__init__.py tests/__init__.py | xargs dirname | xargs poetry run mypy
-	-poetry run ruff check .
-	-poetry run safety check --bare
+	-uv run mypy src tests
+	-uv run ruff check .
+	@ # ignore is for the Jijna2 warning, which is brought in by safety itself
+	-uv run safety --disable-optional-telemetry check --bare --ignore 70612
 
 format-check:
-	-poetry run black --diff .
+	uv run ruff format --diff .
 
 run:
-	poetry run python src/main.py
+	uv run src/main.py
 
 clean:
 	rm -rf htmlcov
 	rm -rf .coverage .pytest_cache .mypy_cache .ruff_cache
-	-find . \( -not -path ./.venv/\* \) -name "__pycache__" -exec rm -rf {} \;
+	-find . \( -not -path ./.venv/\* \) -name "__pycache__" -exec rm -rf {} \; 2>/dev/null || true
 
 pristine: clean
 	rm -rf .venv
 
+upgrade:
+	uv sync --upgrade
+
 boot:
-	POETRY_VIRTUALENVS_IN_PROJECT=true poetry install --no-root
+	uv sync -q --prerelease=allow

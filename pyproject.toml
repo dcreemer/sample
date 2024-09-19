@@ -1,51 +1,62 @@
-[tool.poetry]
+[project]
 name = "sample"
-version = "0.3.0"
-description = "Sample Python application"
-authors = ["D Creemer <dcreemer@sfba.social>"]
+version = "0.4.0"
+description = "Sample Python Application"
+readme = "README.md"
+license = { text = "CC0 1.0 Universal" }
+requires-python = ">=3.12"
+authors = [
+  { name = "David Creemer" },
+]
+urls.Homepage = "https://github.com/dcreemer/sample"
 
-[tool.poetry.dependencies]
-python = "^3.11"
+dependencies = []
 
-[tool.poetry.dev-dependencies]
-black = "^24.4.2"
-coverage = {extras = ["toml"], version = "^7.5.3"}
-mypy = "^1.10.0"
-pytest = "^8.2.1"
-pytest-cov = "^5.0.0"
-ruff = "^0.3.5"
-safety = "^3.2.0"
+[tool.uv]
+prerelease="allow"
+dev-dependencies = [
+  "pytest>=8.3.2",
+  "pytest-cov>=5.0.0",
+  "mypy>=1.10.0",
+  "ruff>=0.3.5",
+  "safety>=3.2.0",
+]
 
 [tool.pytest.ini_options]
-minversion = "7.0"
 addopts = "--cov=sample --cov-report html --cov-report term"
-
-[tool.black]
-line-length = 105
-target-version = ["py311"]
-preview = true
 
 [tool.ruff]
 line-length = 105
 src = ["src", "tests"]
 lint.select = [
   "B",   # bugbear
+  "C4",  # comprehensions
   "C90", # mccabe
+  "DTZ", # datetimez
   "E",   # pycodestyle
+  "EXE", # executable
   "F",   # pyflakes
   "I",   # isort
+  "INT", # gettext
   "N",   # pep8 naming
+  "PIE", # pie
+  "PLC", # pylint convention
+  "PLE", # pylint errors
   "PT",  # pytest style
+  "PTH", # use-pathlib
+  "Q",   # quotes
+  "RSE", # flake8-raise
   "RUF", # ruff
   "S",   # bandit
   "SIM", # simplify
+  "UP",  # pyupgrade
   "UP",  # pyupgrade
   "W",   # Warnings
 ]
 lint.typing-modules = ["typings"]
 
 [tool.ruff.lint.per-file-ignores]
-"**/tests/*.py" = ["S101"]
+"**/tests/*.py" = ["S101"] # do not warn on asserts
 
 [tool.ruff.lint.mccabe]
 max-complexity = 8
@@ -56,7 +67,7 @@ parallel = true
 source = ["src"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
 strict = true
 warn_return_any = true
@@ -64,5 +75,5 @@ warn_unreachable = true
 warn_no_return = true
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
