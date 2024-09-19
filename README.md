@@ -23,7 +23,7 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell)" problems when installing l
 (typically because you type `pip install libxyz`). These runtimes use a _shared_ library
 directory, and so can easily get into an inconsistent state. Python solved this problem
 through [virtual environments](https://docs.python.org/3/tutorial/venv.html) ("venv") -
-and every project, tool, etc. on your system should use it's own venv. Managing the base
+and every project, tool, etc. on your system should use its own venv. Managing the base
 Python runtime and host of virtual environments can be a lot of work, so many tools exist
 to support this.
 
@@ -41,12 +41,12 @@ If you want to install a tool like `uv`, it's just a single binary file. Most Py
 tools are made up of many Python source-files, and will need a Python runtime and possibly
 3rd party libraries in order to run. If these tools are installed in a global Python
 environment, we run into the dependency conflict mentioned above. Tools like
-[pipx](https://github.com/pypa/pipx) where developed to solve this problem. Each
+[pipx](https://github.com/pypa/pipx) were developed to solve this problem. Each
 Python-implemented tool is installed in an isolated virtual environment, and then the CLI
 tools are symlinked into your `$PATH`.
 
-`uv` supports the same capability with `uv tool install ...`. Since `uv` is installed
-already, `pipx` is not needed.
+`uv` supports this capability with `uv tool install ...`. Since `uv` is installed already,
+`pipx` is not needed.
 
 Let's install a couple of tools to see how it works:
 
@@ -56,7 +56,7 @@ $ uv tool install ruff
 ```
 
 Here we've install [cowsay](https://pypi.org/project/cowsay/) and
-[ruff](https://github.com/astral-sh/ruff) into their own separate python virtual
+[ruff](https://github.com/astral-sh/ruff) into their own separate Python virtual
 environments. We can list the installed tools, and upgraded them individually or
 collectively:
 
@@ -76,7 +76,9 @@ development, testing, and deployment tools are specified in the `pyproject.toml`
 the app-root directory, and are generally managed by the `uv` tool itself, which will
 create and automatically use a local virtual-environment just for this application. The
 included `Makefile` includes targets to remove and recreate this virtual environment if
-needed (`make pristine` and `make boot` respectively).
+needed (`make pristine` and `make boot` respectively). In addition, all of the settings
+for the various other development tools, like `ruff` and `pytest` are also managed in
+sections within the `pyproject.toml` file.
 
 ## Using the project
 
