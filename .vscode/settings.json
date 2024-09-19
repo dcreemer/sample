@@ -1,6 +1,5 @@
 {
     "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
-    "python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
     "files.exclude": {
         ".pytest_cache": true,
         "**/__pycache__": true,
