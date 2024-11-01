@@ -4,8 +4,9 @@ test:
 code-check:
 	-uv run mypy src tests
 	-uv run ruff check .
-	@ # ignore is for the Jijna2 warning, which is brought in by safety itself
-	-uv run safety --disable-optional-telemetry check --bare --ignore 70612
+	@ # ignore asserts
+	-uv run bandit -q -s B101 -r src tests
+	-uv run pip-audit --progress-spinner=off --skip-editable
 
 format-check:
 	uv run ruff format --diff .
