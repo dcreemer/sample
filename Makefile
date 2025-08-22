@@ -3,13 +3,13 @@ test:
 
 code-check:
 	-uv run mypy src tests
-	-uv run ruff check .
+	-uv run uv format --check -- .
 	@ # ignore asserts
 	-uv run bandit -q -s B101 -r src tests
 	-uv run pip-audit --progress-spinner=off --skip-editable
 
 format-check:
-	uv run ruff format --diff .
+	uv run uv format --diff -- .
 
 run:
 	uv run src/main.py
